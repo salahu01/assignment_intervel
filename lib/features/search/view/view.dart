@@ -11,7 +11,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class SearchScreen extends AppColors {
   const SearchScreen({Key? key, required this.controller}) : super(key: key);
   final TextEditingController controller;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,7 +20,7 @@ class SearchScreen extends AppColors {
           backgroundColor: light,
           elevation: 0,
           toolbarHeight: 70.h,
-          
+
           leading: InkWell(
             overlayColor: MaterialStateProperty.all(Colors.transparent),
             onTap: () => Navigator.pop(context),

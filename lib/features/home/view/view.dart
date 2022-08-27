@@ -36,6 +36,7 @@ class HomeScreen extends AppColors {
                     child: SizedBox(
                       height: 45.h,
                       child: TextField(
+                        controller: controller,
                         cursorColor: primary,
                         cursorHeight: 20.sp,
                         style: TextStyle(
