@@ -28,6 +28,8 @@ class DetailsScreen extends AppColors {
                         child: Image.network(
                           drinkModel.strDrinkThumb!,
                           width: double.maxFinite,
+                          height: size.height*0.57,
+                          fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) => Center(
                             child: Icon(
                               Icons.error_outline,
