@@ -6,13 +6,13 @@ import '../state/state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit({required this.getDrinks,required this.text}) : super(InitialState()) {
-    getTrendingMovies();
+    getData();
   }
 
   final GetDrinks getDrinks;
   final String text;
 
-  void getTrendingMovies() async {
+  void getData() async {
     try {
       emit(LoadingState());
       final List<DrinkModel> drinks = await getDrinks.getData(text: text);
