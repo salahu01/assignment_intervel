@@ -104,6 +104,7 @@ class SearchScreen extends AppColors {
                       MaterialPageRoute(
                         builder: (context) => DetailsScreen(
                           drinkModel: drinks[index],
+                          index: index,
                         ),
                       ),
                     ),

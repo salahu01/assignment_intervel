@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomeScreen extends AppColors {
-   HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
   final TextEditingController controller = TextEditingController();
 
   @override
@@ -61,7 +61,8 @@ class HomeScreen extends AppColors {
                     onPressed: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => SearchScreen(controller: controller),
+                        builder: (context) =>
+                            SearchScreen(controller: controller),
                       ),
                     ),
                     color: lowLight,
@@ -87,7 +88,7 @@ class HomeScreen extends AppColors {
                 );
               } else if (state is ErrorState) {
                 return const Center(
-                   child: CustomText(text: 'Something Went Wrong !!!'),
+                  child: CustomText(text: 'Something Went Wrong !!!'),
                 );
               } else if (state is LoadedState) {
                 final drinks = state.drinks;
@@ -100,6 +101,7 @@ class HomeScreen extends AppColors {
                       MaterialPageRoute(
                         builder: (context) => DetailsScreen(
                           drinkModel: drinks[index],
+                          index: index,
                         ),
                       ),
                     ),
@@ -109,11 +111,14 @@ class HomeScreen extends AppColors {
                         children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(30.r),
-                            child: Image.network(
-                              drinks[index].strDrinkThumb!,
-                              fit: BoxFit.cover,
-                              height: 125.sp,
-                              width: 125.sp,
+                            child: Hero(
+                              tag: 'image$index',
+                              child: Image.network(
+                                drinks[index].strDrinkThumb!,
+                                fit: BoxFit.cover,
+                                height: 125.sp,
+                                width: 125.sp,
+                              ),
                             ),
                           ),
                           const Spacer(),
